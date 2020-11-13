@@ -10,3 +10,8 @@
     position: relative;
     top: 30px;
 }
+.register-block{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
