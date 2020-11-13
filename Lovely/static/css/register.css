@@ -1,0 +1,16 @@
+.text-register{
+    width: 29%;
+    height: 240px;
+    margin-left: 155px;
+    font-style: italic;
+    font-size: 16px;
+    color: LightSlateGrey;
+    display: flex;
+    position: relative;
+    top: 50px;
+}
+.register-block{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}

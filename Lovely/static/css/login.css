@@ -1,0 +1,12 @@
+.text-login{
+    width: 30%;
+    margin-left: 185px;
+    margin-top: 60px;
+    font-style: italic;
+    font-size: 36px;
+    color: LightSlateGrey;
+}
+.margintop-blockform{
+    position: relative;
+    top: 30px;
+}

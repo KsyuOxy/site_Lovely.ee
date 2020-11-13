@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Multi page {{ page__id }}
+{% endblock title %}
+
+{% block content %}
+
+    <div>
+        hello
+    </div>
+
+{% endblock content %}
+
+{% block footer-img %}
+    <img class="footer-img" src="{% static 'img/1.jpg' %}" alt="img">
+{% endblock footer-img %}

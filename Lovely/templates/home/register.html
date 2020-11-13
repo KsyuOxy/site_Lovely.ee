@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    (Registration)
+{% endblock title %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock link %}
+
+{% block logo %}
+    <img class="logo" src="{% static 'img/Logo Lovely.png' %}" height='70' alt="logo">
+{% endblock logo %}
+
+{% block content %}
+<div class="register-block">
+    <form class="form-group" action="/register" method="post">
+        <p>
+            <label for="login_field">Login</label>
+            <input id="login_field" name="login_field" type="text" placeholder="Enter login">
+        </p>
+        <p>
+            <label for="email_field">Email</label>
+            <input id="email_field" name="email_field" type="email" placeholder="Enter email">
+        </p>
+        <p>
+            <label for="password_field">Password</label>
+            <input id="password_field" name="password_field" type="password" placeholder="Enter password">
+        </p>
+        <p>
+            <label for="password_confirmation_field">Password Confirmation</label>
+            <input id="password_confirmation_field" name="password_confirmation_field" type="password"
+                   placeholder="Re-enter password">
+        </p>
+        <button>
+            Login
+        </button>
+        <button>
+            Cancel
+        </button>
+    </form>
+
+    <div class="text-register">
+        Здесь будут прописаны преимущества для зарегистрированных пользователей. <br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam blanditiis doloremque error ex
+        exercitationem explicabo ipsam, laudantium libero magnam nam natus placeat quasi quod repellat reprehenderit
+        unde velit vitae.
+
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block footer-img %}
+    <img class="footer-img" src="{% static 'img/1.jpg' %}" alt="img">
+{% endblock footer-img %}

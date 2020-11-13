@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Lovely.ee
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <link rel="icon" href="{% static 'img/Лого mini.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    {% block link %}
+    {% endblock link %}
+</head>
+<body>
+    <nav>
+        <div class="block">
+            {% block logo %}
+            {% endblock logo %}
+            <ul class="main-menu">
+                <div id="promotion"><a href="{% url 'promotion' %}"> promotion </a></div>
+                <li><a href="{% url 'home' %}"> home </a></li>
+                <li><a href="{% url 'catalog' %}"> catalog </a></li>
+                <li><a href="{% url 'delivery' %}"> delivery </a></li>
+                <li><a href="{% url 'contacts' %}"> contacts </a></li>
+                <li><a href="{% url 'reviews' %}"> reviews </a></li>
+                <li ><a style="color: Pink" href="{% url 'login' %}"> log in </a></li>
+                <li><a style="color: Pink" href="{% url 'register' %}"> register </a></li>
+            </ul>
+
+            <div class="right-menu">
+
+                <span>
+                <img src="{% static 'img/cart-pink2.png' %}" height='30' alt="cart">
+                </span>
+
+                <div>
+                    <div class="phone-right">+ 372 777 7777 </div>
+                    <hr noshade size="3" width="198" color="black">
+                    <div>lovely.lashes.estonia@gmail.com</div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="fon">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <footer class="footer">
+        <hr class="hr" noshade size="12" width="1248" color="black">
+        <div>
+            {% block footer-img %}
+            {% endblock footer-img %}
+        </div>
+        <div class="footer-text">
+            <p>lovely.lashes.estonia@gmail.com</p>
+            <p>Tallinn, Punane 16/1, 5th floor, office 503</p>
+            <p>+372 777 7777</p>
+        </div>
+        <div class="soc-net">
+            <img src="{% static 'img/facebook_2.png' %}" alt="facebook">
+            <img src="{% static 'img/insta_2.png' %}" alt="instagram">
+        </div>
+    </footer>
+</body>
+</html>

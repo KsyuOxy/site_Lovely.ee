@@ -1,0 +1,60 @@
+.form-group{
+    position: relative;
+    top: 50px;
+    text-align: left;
+    width: 525px;
+
+    margin-left: 80px;
+    border: lightblue solid 1px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: black;
+}
+.form-group button{
+    background-color: lightblue;
+    color: LightSlateGrey;
+    border-radius: 5px;
+    border: none;
+    padding: 3px;
+    width: 21%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;font-weight: 500;
+}
+label{
+    position: relative;
+    top: 2px;
+}
+#email_field{
+    width: 80%;
+    margin-left: 15px;
+    height: 25px;
+    font-size: 16px;
+    padding-top: 3px;
+}
+#login_field{
+    width: 80%;
+    margin-left: 15px;
+    height: 25px;
+    font-size: 16px;
+    padding-top: 3px;
+}
+#password_field{
+    width: 71%;
+    margin-left: 15px;
+    height: 25px;
+    font-size: 16px;
+    padding-top: 3px;
+}
+#password_confirmation_field{
+    width: 43%;
+    margin-left: 15px;
+    height: 25px;
+    font-size: 16px;
+    padding-top: 3px;
+}
+
+
+
