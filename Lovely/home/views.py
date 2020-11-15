@@ -1,10 +1,11 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'base.html')  # request, путь к файлу который хотим отобразить на странице
-    # return HttpResponse('Hello')
+    return render(request, 'base.html')
 
 
 def html_main_page(request):
@@ -19,11 +20,65 @@ def multipage(request, page_id: int):
 
 
 def sign_in(request):
-    return render(request, 'home/login.html')
+    data = {}
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            data['report'] = 'User is already authenticated'
+            return render(request, 'home/result.html', context=data)
+        return render(request, 'home/login.html')
+
+    elif request.method == "POST":
+        _login = request.POST.get('login_field')
+        _password = request.POST.get('password_field')
+        user = authenticate(request, username=_login, password=_password)
+
+        if user is None:
+            data['report'] = 'User not found or wrong password'
+            return render(request, 'home/result.html', context=data)
+        else:
+            data['report'] = 'You have successfully authenticated'
+            login(request, user)
+            return render(request, 'home/result.html', context=data)
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/main_page')
 
 
 def register(request):
-    return render(request, 'home/register.html')
+    data = dict()
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            return redirect('/main_page')
+        return render(request, 'home/register.html', context={})
+
+    elif request.method == "POST":
+        login = request.POST.get('login_field')
+        email = request.POST.get('email_field')
+        passwd1 = request.POST.get('password_field')
+        passwd2 = request.POST.get('password_confirmation_field')
+
+        data['login'] = login
+        data['email'] = email
+        data['passwd1'] = passwd1
+        data['passwd2'] = passwd2
+
+        if passwd1 != passwd2:
+            report = 'Passwords must match'
+        elif '' in data.values():
+            report = 'All fields are required'
+        elif len(passwd1) < 8:
+            report = 'The password is too short'
+        else:
+            user = User.objects.create_user(login, email, passwd1)
+            user.save()
+            if user:
+                data['report'] = 'You have successfully registered'
+                return render(request, 'home/result.html', context=data)
+            report = 'Oops! Something wrong.'
+        data['report'] = report
+        return render(request, 'home/result.html', context=data)
 
 
 def catalog(request):
@@ -44,3 +99,8 @@ def reviews(request):
 
 def promotion(request):
     return render(request, 'home/promotion.html')
+
+
+def result(request):
+
+    return render(request, 'home/result.html')

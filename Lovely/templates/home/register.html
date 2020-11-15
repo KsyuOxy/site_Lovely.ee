@@ -17,6 +17,10 @@
 {% block content %}
 <div class="register-block">
     <form class="form-group" action="/register" method="post">
+        {% csrf_token %}
+        <div class="error">
+            {{ report }}
+        </div>
         <p>
             <label for="login_field">Login</label>
             <input id="login_field" name="login_field" type="text" placeholder="Enter login">
@@ -34,12 +38,14 @@
             <input id="password_confirmation_field" name="password_confirmation_field" type="password"
                    placeholder="Re-enter password">
         </p>
-        <button>
-            Login
-        </button>
-        <button>
-            Cancel
-        </button>
+<!--        <button>-->
+<!--            Login-->
+<!--        </button>-->
+<!--        <button>-->
+<!--            Cancel-->
+<!--        </button>-->
+        <input id="submit" type="submit" value="Send" class="button">
+        <input type="reset" value="Clear" class="button">
     </form>
 
     <div class="text-register">

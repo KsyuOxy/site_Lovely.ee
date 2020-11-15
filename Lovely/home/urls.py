@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import index, html_main_page, multipage, sign_in, register, catalog, delivery, contacts, reviews, promotion
+from .views import index, html_main_page, multipage, sign_in, register, catalog, \
+    delivery, contacts, reviews, promotion, logout_user, result
 
 urlpatterns = [
     path('', index),  # когда будет запускаться вьюшка index
@@ -13,4 +14,6 @@ urlpatterns = [
     path('contacts', contacts, name='contacts'),
     path('reviews', reviews, name='reviews'),
     path('promotion', promotion, name='promotion'),
+    path('logout', logout_user, name='logout'),
+    path('result', result, name='result'),
 ]

@@ -27,8 +27,13 @@
                 <li><a href="{% url 'delivery' %}"> delivery </a></li>
                 <li><a href="{% url 'contacts' %}"> contacts </a></li>
                 <li><a href="{% url 'reviews' %}"> reviews </a></li>
-                <li ><a style="color: Pink" href="{% url 'login' %}"> log in </a></li>
-                <li><a style="color: Pink" href="{% url 'register' %}"> register </a></li>
+
+                {% if user.is_authenticated %}
+                    <li ><a id="logout-menu" style="color: Pink" href="{% url 'logout' %}"> log out </a></li>
+                {% else %}
+                    <li ><a style="color: Pink" href="{% url 'login' %}"> log in </a></li>
+                    <li><a style="color: Pink" href="{% url 'register' %}"> register </a></li>
+                {% endif %}
             </ul>
 
             <div class="right-menu">
@@ -38,6 +43,13 @@
                 </span>
 
                 <div>
+                    <div class="logged-in">
+                        {% if user.is_superuser %}
+                            Admin
+                        {% elif user.is_authenticated %}
+                            Welcome, {{ user.username }}
+                        {% endif %}
+                    </div>
                     <div class="phone-right">+ 372 777 7777 </div>
                     <hr noshade size="3" width="198" color="black">
                     <div>lovely.lashes.estonia@gmail.com</div>

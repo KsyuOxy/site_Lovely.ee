@@ -1,0 +1,9 @@
+.text-result{
+    font-size: 28px;
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

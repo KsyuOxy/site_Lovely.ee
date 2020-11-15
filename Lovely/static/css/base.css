@@ -9,8 +9,18 @@ body{
 	position: relative;
 	top: 3px;
 }
+.logged-in{
+    display: flex;
+    justify-content: flex-end;
+    color: lightblue;
+    margin-bottom: 15px;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+#logout-menu{
+    margin-right: 70px;
+}
 .main-menu{
-
 	display: flex;
 	list-style: none;
 	margin: 0;

@@ -6,7 +6,7 @@
 {% endblock title %}
 
 {% block link %}
-<!--    <link rel="stylesheet" href="{% static 'css/html-main_page.css' %}">-->
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
 {% endblock link %}
 
 {% block logo %}
@@ -14,6 +14,10 @@
 {% endblock logo %}
 
 {% block content %}
+   <div class="text-result">
+       {{ report }}
+   </div>
+
 {% endblock content %}
 
 {% block footer-img %}

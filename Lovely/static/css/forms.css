@@ -12,7 +12,7 @@
     font-size: 24px;
     color: black;
 }
-.form-group button{
+.form-group .button{
     background-color: lightblue;
     color: LightSlateGrey;
     border-radius: 5px;
@@ -53,6 +53,10 @@ label{
     height: 25px;
     font-size: 16px;
     padding-top: 3px;
+}
+.error{
+    color: red;
+    font-size: 13px;
 }
 
 

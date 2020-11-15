@@ -17,20 +17,19 @@
 {% block content %}
 <div class="register-block margintop-blockform">
     <form class="form-group" action="/login" method="post">
+        {% csrf_token %}
+        <span class="error">{{ report }}</span>
         <p>
             <label for="login_field">Login</label>
-            <input id="login_field" type="text" placeholder="Введите логин">
+            <input id="login_field" name="login_field" type="text" placeholder="Введите логин">
         </p>
         <p>
             <label for="password_field">Password</label>
-            <input id="password_field" type="password" placeholder="Введите пароль">
+            <input id="password_field" name="password_field" type="password" placeholder="Введите пароль">
         </p>
-        <button>
-            Login
-        </button>
-        <button>
-            Cancel
-        </button>
+
+        <input id="submit" type="submit" value="Send" class="button">
+        <input type="reset" value="Clear" class="button">
     </form>
     <div class="text-login">
         Glad to see you!
