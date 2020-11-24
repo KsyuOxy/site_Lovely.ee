@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -14,7 +15,13 @@ def html_main_page(request):
 
 def multipage(request, page_id: int):
     data = {
-        'page__id': page_id
+        'page__id': page_id,
+        'text': 'hello to you',
+        'animals': ['cat', 'dog', 'cow', 'owl', ],
+        'range': range(10),
+        'variable': True,
+        '1': '',
+        '2': '',
     }
     return render(request, 'home/multi-value-page.html', context=data)
 
@@ -102,5 +109,33 @@ def promotion(request):
 
 
 def result(request):
-
     return render(request, 'home/result.html')
+
+
+def ajax_reg(request) -> JsonResponse:
+    response = dict()
+    _login = request.GET.get('login_field')
+    try:
+        User.objects.get(username=_login)
+        response['message_login'] = 'занят'
+    except User.DoesNotExist:
+        response['message_login'] = 'свободен'
+
+    return JsonResponse(response)
+
+
+def ajax_log_passwd(request) -> JsonResponse:
+    response = dict()
+
+    _login = request.GET.get('login_field')
+    _password = request.GET.get('password_field')
+
+    user = authenticate(request, username=_login, password=_password)
+    if user is not None:
+        response['message_user'] = 'ok'
+        # login(request, user)
+        return JsonResponse(response)
+    else:
+
+        response['message_user'] = 'error'
+        return JsonResponse(response)

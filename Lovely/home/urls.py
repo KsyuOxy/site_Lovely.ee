@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import index, html_main_page, multipage, sign_in, register, catalog, \
-    delivery, contacts, reviews, promotion, logout_user, result
+    delivery, contacts, reviews, promotion, logout_user, result, ajax_reg, ajax_log_passwd
 
 urlpatterns = [
     path('', index),  # когда будет запускаться вьюшка index
@@ -16,4 +16,6 @@ urlpatterns = [
     path('promotion', promotion, name='promotion'),
     path('logout', logout_user, name='logout'),
     path('result', result, name='result'),
+    path('ajax_reg', ajax_reg, name='ajax_reg'),
+    path('ajax_log_passwd', ajax_log_passwd, name='ajax_log_passwd'),
 ]

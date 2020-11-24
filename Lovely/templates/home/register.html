@@ -16,37 +16,42 @@
 
 {% block content %}
 <div class="register-block">
-    <form class="form-group" action="/register" method="post">
+    <form class="form-group" action="/register" method="post" onsubmit="return false">
         {% csrf_token %}
         <div class="error">
             {{ report }}
         </div>
-        <p>
+        <p class="p">
             <label for="login_field">Login</label>
             <input id="login_field" name="login_field" type="text" placeholder="Enter login">
+            <img id="login_icon" src="{% static 'img/question.png' %}" alt="img-result">
+            <div id="login_error" class="error"></div>
         </p>
         <p>
             <label for="email_field">Email</label>
             <input id="email_field" name="email_field" type="email" placeholder="Enter email">
+            <img id="email_icon" src="{% static 'img/question.png' %}" alt="img-result">
+            <div id="email_error" class="error"></div>
         </p>
         <p>
             <label for="password_field">Password</label>
             <input id="password_field" name="password_field" type="password" placeholder="Enter password">
+            <img id="password_icon" src="{% static 'img/question.png' %}" alt="img-result">
+            <div id="password_error" class="error"></div>
         </p>
         <p>
             <label for="password_confirmation_field">Password Confirmation</label>
             <input id="password_confirmation_field" name="password_confirmation_field" type="password"
                    placeholder="Re-enter password">
+            <img id="password_confirm_icon" src="{% static 'img/question.png' %}" alt="img-result">
+            <div id="password_confirm_error" class="error"></div>
         </p>
-<!--        <button>-->
-<!--            Login-->
-<!--        </button>-->
-<!--        <button>-->
-<!--            Cancel-->
-<!--        </button>-->
+
         <input id="submit" type="submit" value="Send" class="button">
         <input type="reset" value="Clear" class="button">
     </form>
+
+    <script src="{% static 'js/reg.js' %}"></script>
 
     <div class="text-register">
         Здесь будут прописаны преимущества для зарегистрированных пользователей. <br>

@@ -16,7 +16,7 @@
 
 {% block content %}
 <div class="register-block margintop-blockform">
-    <form class="form-group" action="/login" method="post">
+    <form class="form-group" action="/login" method="post" onsubmit="return false">
         {% csrf_token %}
         <span class="error">{{ report }}</span>
         <p>
@@ -30,7 +30,12 @@
 
         <input id="submit" type="submit" value="Send" class="button">
         <input type="reset" value="Clear" class="button">
+        <input id="log_btn" type="submit" value="Log in" class="button">
+        <input id="check_btn" type="submit" value="Check" class="button">
     </form>
+
+    <script src="{% static 'js/log.js' %}"></script>
+
     <div class="text-login">
         Glad to see you!
     </div>
