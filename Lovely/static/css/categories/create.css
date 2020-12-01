@@ -1,0 +1,52 @@
+.content-left{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 35px 25px;
+}
+.form-group{
+    position: relative;
+    left: 110px;
+    text-align: left;
+    width: 490px;
+    border: lightblue solid 1px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: black;
+}
+.block-body-admin{
+    box-sizing: inherit;
+    position: relative;
+    top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.text-form{
+    margin-top: 0px;
+    color: LightBlue;
+    font-size: 18px;
+    font-family: 'Philosopher', sans-serif;
+}
+.category-add-form-field{
+    color: SteelBlue;
+}
+#create-category{
+    background: LightCyan;
+}
+.button{
+    width: 90px;
+    height: 25px;
+    font-size: 16px;
+    background: SteelBlue;
+    border: SteelBlue solid 1px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+}
+.clear{
+    margin-left:15px;
+}
+

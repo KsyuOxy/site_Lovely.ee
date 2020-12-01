@@ -3,8 +3,7 @@ from .views import index, html_main_page, multipage, sign_in, register, catalog,
     delivery, contacts, reviews, promotion, logout_user, result, ajax_reg, ajax_log_passwd
 
 urlpatterns = [
-    path('', index),  # когда будет запускаться вьюшка index
-    # path('home', index),
+    path('', index),
     path('main_page', html_main_page, name='home'),
     path('multi_page/<int:page_id>', multipage),
     path('login', sign_in, name='login'),

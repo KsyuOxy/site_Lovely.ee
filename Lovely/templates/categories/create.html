@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Create category
+{% endblock title %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/categories/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categories/index.css' %}">
+{% endblock link %}
+
+{% block logo %}
+    <img class="logo" src="{% static 'img/Logo Lovely.png' %}" height='70' alt="logo">
+{% endblock logo %}
+
+{% block content %}
+<div class="block-body-admin">
+    <div class="block-blocks content-left">
+        <form class="form-group" id="create-category" method="post" action="{% url 'create_category' %}">
+            {% csrf_token %}
+            <p class="text-form">Form to add Category:</p>
+            {% for field in category_form %}
+                <p class="category-add-form-field">
+                    {{ field.label_tag }} {{ field }}
+                </p>
+            {% endfor %}
+            <input id="submit" type="submit" value="Send" class="button">
+            <input type="reset" value="Clear" class="button clear">
+        </form>
+    </div>
+    <div class="list-group">
+        <a class="list-group-item" href="{% url 'categories_homepage' %}"> Categories </a>
+        <ul type="disk">
+            <li class="list-item"><a href="#"> update category </a></li>
+            <li class="list-item"><a href="{% url 'create_category' %}"> create new category </a></li>
+            <li class="list-item"><a href="#"> delete category </a></li>
+            <li class="list-item"><a href="{% url 'category_list' %}"> list of categories </a></li>
+            <li class="list-item"><a href="#"> category details </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer-img %}
+    <img class="footer-img" src="{% static 'img/1.jpg' %}" alt="img">
+{% endblock footer-img %}

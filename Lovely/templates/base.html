@@ -19,7 +19,9 @@
 <script
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+
+</script>
     <nav>
         <div class="block">
             {% block logo %}
@@ -33,10 +35,10 @@
                 <li><a href="{% url 'reviews' %}"> reviews </a></li>
 
                 {% if user.is_authenticated %}
-                    <li ><a id="logout-menu" style="color: Pink" href="{% url 'logout' %}"> log out </a></li>
+                    <li id="logout_li"><a href="{% url 'logout' %}"> log out </a></li>
                 {% else %}
-                    <li ><a style="color: Pink" href="{% url 'login' %}"> log in </a></li>
-                    <li><a style="color: Pink" href="{% url 'register' %}"> register </a></li>
+                    <li id="login_li"><a href="{% url 'login' %}"> log in </a></li>
+                    <li id="register_li"><a href="{% url 'register' %}"> register </a></li>
                 {% endif %}
             </ul>
 
@@ -65,7 +67,9 @@
 
     <div class="fon">
         {% block content %}
+
         {% endblock content %}
+
     </div>
 
     <footer class="footer">

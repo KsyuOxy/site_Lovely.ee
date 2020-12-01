@@ -1,0 +1,25 @@
+div #catalog-menu a:hover{
+    background: pink;
+    color: white;
+}
+.square-block{
+    width: 200px;
+    height: 100px;
+    border: DeepSkyBlue solid 1px;
+    border-radius: 10px;
+    margin: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: LightCyan;
+    box-shadow: 0em 0.2em 7px rgba(122,122,122,0.3);
+    color: SteelBlue;
+}
+.word-catalog{
+    font-size: 72px;
+    color: pink;
+    letter-spacing: 15px;
+}

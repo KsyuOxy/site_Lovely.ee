@@ -6,7 +6,7 @@ from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
-    return render(request, 'base.html')
+    return render(request, 'home/index.html')
 
 
 def html_main_page(request):

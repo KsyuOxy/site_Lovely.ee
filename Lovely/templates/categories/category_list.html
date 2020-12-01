@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Categories list
+{% endblock title %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/categories/category_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categories/index.css' %}">
+{% endblock link %}
+
+{% block logo %}
+    <img class="logo" src="{% static 'img/Logo Lovely.png' %}" height='70' alt="logo">
+{% endblock logo %}
+
+{% block content %}
+<div class="block-body-admin">
+    <div class="block-blocks content-left">
+        <div class="vr-line"></div>
+        <div >
+            <p class="categories-list">Categories:</p>
+            <ul type="none" >
+                {% for category in categories %}
+                    <li class="catalog-list">
+                        <a  href="{% url 'category_details' category.id %}"> {{category.id}}.{{category.name}} </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="list-group">
+        <a class="list-group-item" href="{% url 'categories_homepage' %}"> Categories </a>
+        <ul type="disk">
+            <li class="list-item"><a href="#"> update category </a></li>
+            <li class="list-item"><a href="{% url 'create_category' %}"> create new category </a></li>
+            <li class="list-item"><a href="#"> delete category </a></li>
+            <li class="list-item"><a href="{% url 'category_list' %}"> list of categories </a></li>
+            <li class="list-item"><a href="#"> category details </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer-img %}
+    <img class="footer-img" src="{% static 'img/1.jpg' %}" alt="img">
+{% endblock footer-img %}

@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block title %}
+    (Catalog)
 {% endblock title %}
 
 {% block link %}
-<!--    <link rel="stylesheet" href="{% static 'css/html-main_page.css' %}">-->
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+
 {% endblock link %}
 
 {% block logo %}
@@ -13,6 +15,22 @@
 {% endblock logo %}
 
 {% block content %}
+    <div class="block-body-admin">
+        <div class="block-blocks word-catalog">
+            CATALOG
+        </div>
+        {% if user.is_superuser %}
+        <div id="catalog-menu" class="list-group">
+            <a href="{% url 'categories_homepage' %}" class="list-group-item">
+                Categories
+            </a>
+            <a href="#" class="list-group-item">New products</a>
+            <a href="#" class="list-group-item">Not available</a>
+            <a href="#" class="list-group-item">Promotional products</a>
+            <a href="#" class="list-group-item">All products</a>
+        </div>
+        {% endif %}
+    </div>
 {% endblock content %}
 
 {% block footer-img %}
