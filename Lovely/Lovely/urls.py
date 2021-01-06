@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),  # когда будет запускаться вьюшка включая путь из home.urls
     path('categories/', include('categories.urls')),
-
+    path('products/', include('products.urls')),
 ]

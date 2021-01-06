@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{product.name}}/(Info)
+{% endblock title %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/categories/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products/product_details.css' %}">
+{% endblock link %}
+
+{% block logo %}
+    <img class="logo" src="{% static 'img/Logo Lovely.png' %}" height='70' alt="logo">
+{% endblock logo %}
+
+{% block content %}
+<div class="block-body-admin">
+
+<!--Product details-->
+    <div class="product-details">
+        <h1> {{ product.name.capitalize }} </h1>
+        <p class="font"> Category: <span class="font-16">{{ product.category }}</span> </p>
+        <p id="m-btm-0" class="font"> About: </p>
+        <div class="div-about"><p id="m-top-5" class="font-16"> {{ product.about.capitalize }} </p></div>
+        <p class="font"> Expiration date: <span class="font-16 exp-date">{{ product.expiration_date }}</span> </p>
+    </div>
+
+<!--Right Menu for superuser-->
+    {% if user.is_superuser %}
+        <div id="catalog-menu" class="list-group">
+            <a href="{% url 'categories_homepage' %}" class="list-group-item"> Categories </a>
+            <a href="{% url 'create_product' %}" class="list-group-item">New product</a>
+            <a href="#" class="list-group-item">Not available</a>
+            <a href="#" class="list-group-item">Promotional products</a>
+            <a href="{% url 'products_list' %}" class="list-group-item">All products</a>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock content %}
+
+{% block footer-img %}
+    <img class="footer-img" src="{% static 'img/1.jpg' %}" alt="img">
+{% endblock footer-img %}

@@ -1,0 +1,50 @@
+.w-740{
+    color: SteelBlue;
+}
+.product-details{
+    box-sizing: inherit;
+    position: relative;
+    top: 10px;
+    padding-left: 130px;
+    padding-right: 30px;
+    margin-left: 85px;
+    margin-right: auto;
+    width: 65%;
+    background: #FFE4E180;
+    border-radius: 10px;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+}
+#m-btm-0{
+    margin-bottom: 3px;
+}
+#m-top-5{
+    margin-top: 5px;
+}
+a.list-group-item{
+    margin: 10px;
+}
+h1{
+    color: SteelBlue;
+}
+.font{
+    font-size: 13px;
+    color: SteelBlue;
+}
+.font-16{
+    font-size: 15px;
+    color: black;
+}
+.exp-date{
+    font-weight: 700;
+    color: IndianRed;
+}
+.div-about{
+    background: white;
+    border-radius: 5px;
+    border: SteelBlue solid 1px;
+    padding-top: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

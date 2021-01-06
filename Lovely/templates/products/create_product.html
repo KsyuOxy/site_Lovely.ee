@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block title %}
-    (Update category)
+    Create product
 {% endblock title %}
 
 {% block link %}
     <link rel="stylesheet" href="{% static 'css/categories/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products/products_list.css' %}">
     <link rel="stylesheet" href="{% static 'css/categories/index.css' %}">
 {% endblock link %}
 
@@ -17,10 +18,10 @@
 {% block content %}
 <div class="block-body-admin">
     <div class="block-blocks content-left">
-        <form class="form-group" id="create-category" method="post" action="{% url 'update_category' category.id %}">
+        <form class="form-group" id="create-category" method="post" action="{% url 'create_product' %}">
             {% csrf_token %}
-            <p class="text-form">Form to update Category:</p>
-            {% for field in category_form %}
+            <p class="text-form">Form to add Product:</p>
+            {% for field in product_form %}
                 <p class="category-add-form-field">
                     {{ field.label_tag }} {{ field }}
                 </p>
@@ -29,16 +30,17 @@
             <input type="reset" value="Clear" class="button clear">
         </form>
     </div>
-    <div class="list-group">
-        <a class="list-group-item" href="{% url 'categories_homepage' %}"> Categories </a>
-        <ul type="disk">
-
-            <li class="list-item"><a href="{% url 'create_category' %}"> create new category </a></li>
-
-            <li class="list-item"><a href="{% url 'category_list' %}"> list of categories (update, delete)</a></li>
-
-        </ul>
-    </div>
+    {% if user.is_superuser %}
+        <div id="catalog-menu" class="list-group">
+            <a href="{% url 'categories_homepage' %}" class="list-group-item">
+                Categories
+            </a>
+            <a href="{% url 'create_product' %}" class="list-group-item">New product</a>
+            <a href="#" class="list-group-item">Not available</a>
+            <a href="#" class="list-group-item">Promotional products</a>
+            <a href="{% url 'products_list' %}" class="list-group-item">All products</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock content %}
 

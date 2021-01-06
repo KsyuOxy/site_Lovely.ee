@@ -24,10 +24,10 @@
             <a href="{% url 'categories_homepage' %}" class="list-group-item">
                 Categories
             </a>
-            <a href="#" class="list-group-item">New products</a>
+            <a href="{% url 'create_product' %}" class="list-group-item">New product</a>
             <a href="#" class="list-group-item">Not available</a>
             <a href="#" class="list-group-item">Promotional products</a>
-            <a href="#" class="list-group-item">All products</a>
+            <a href="{% url 'products_list' %}" class="list-group-item">All products</a>
         </div>
         {% endif %}
     </div>

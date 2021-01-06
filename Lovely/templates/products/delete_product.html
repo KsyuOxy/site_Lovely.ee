@@ -17,11 +17,11 @@
 {% block content %}
     <div class="block-body-admin">
         <div class="block-blocks">
-        <form action="/categories/{{ category.id }}/delete" method="post">
+        <form action="/products/{{ product.id }}/delete_product" method="post">
             {% csrf_token %}
 
-            <h1 id="text-delete">Удалить "{{ category.name }}"?</h1>
-            <a id="m-left" class="href-back-delete blue" href="{% url 'category_list' %}">Back</a>
+            <h1 id="text-delete">Удалить "{{ product.name }}"?</h1>
+            <a id="m-left" class="href-back-delete blue" href="{% url 'products_list' %}">Back</a>
             <input id="submit" class="href-back-delete red" value="Delete" type="submit">
         </form>
         </div>

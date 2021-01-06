@@ -1,0 +1,16 @@
+a.list-group-item{
+    margin: 10px;
+}
+.w-740{
+    width: 740px;
+}
+table a{
+    text-decoration: none;
+    color: SteelBlue;
+}
+.update-category{
+    color: MediumSeaGreen;
+}
+.delete-category{
+    color: IndianRed;
+}

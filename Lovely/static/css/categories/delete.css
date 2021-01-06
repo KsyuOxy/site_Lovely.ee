@@ -1,0 +1,29 @@
+#text-delete{
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.href-back-delete{
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 3px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+    background: white;
+}
+.red{
+    border: IndianRed solid 1px;
+    color: IndianRed;
+}
+.blue{
+    border: SteelBlue solid 1px;
+    color: SteelBlue;
+}
+form{
+    height: 200px;
+}
+#m-left{
+    margin-left: 260px;
+}

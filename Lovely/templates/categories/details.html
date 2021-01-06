@@ -7,6 +7,7 @@
 
 {% block link %}
     <link rel="stylesheet" href="{% static 'css/categories/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categories/detail.css' %}">
 {% endblock link %}
 
 {% block logo %}
@@ -14,7 +15,64 @@
 {% endblock logo %}
 
 {% block content %}
+<div class="block-inline">
+    <div class="block-detail">
+        <h1 class="category-name-table">{{ category.name }}</h1>
+        <table border="1">
+            <tr style="background-color: white">
+                <th width="15%">Pole</th>
+                <th width="85%">Data</th>
+            </tr>
+            <tr style="background-color: white">
+                <th>Category</th>
+                <th>{{ category.name }}</th>
+            </tr>
+            <tr style="background-color: white">
+                <th>About</th>
+                <th>{{ category.about }}</th>
+            </tr>
+            <tr style="background-color: white">
+                <th>Products availability</th>
+                <th>
+                    {% if category.in_stock %}
+                        In stock  <img height="10px" src="{% static 'img/check.png' %}" alt="img">
+                    {% else %}
+                        Out of stock  <img height="10px" src="{% static 'img/remove.png' %}" alt="img">
+                    {% endif %}
+                </th>
+            </tr>
+        </table>
+        <h2 class="m-left-15">Products</h2>
 
+        <table border="1" class="w-740">
+            <tr style="background-color: white">
+                <th width="15%">Name</th>
+                <th width="85%">Expiration_date</th>
+            </tr>
+            {% for product in products%}
+            <tr>
+                <th>{{ product.name }}</th>
+                <th>{{ product.expiration_date }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+    {% if user.is_superuser %}
+        <div id="catalog-menu" class="list-group">
+            <a href="{% url 'categories_homepage' %}" class="list-group-item">
+                Categories
+            </a>
+            <a href="#" class="list-group-item">New products</a>
+            <a href="#" class="list-group-item">Not available</a>
+            <a href="#" class="list-group-item">Promotional products</a>
+            <a href="#" class="list-group-item">All products</a>
+
+        </div>
+
+
+        {% endif %}
+</div>
 {% endblock content %}
 
 {% block footer-img %}

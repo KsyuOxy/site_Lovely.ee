@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',  # указываем созданное приложение home
     'categories',
+    'products',
 ]
 
 MIDDLEWARE = [

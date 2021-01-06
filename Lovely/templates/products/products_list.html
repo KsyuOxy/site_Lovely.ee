@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{category.name}}/(Products)
+{% endblock title %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/categories/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categories/category_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products/products_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock link %}
+
+{% block logo %}
+    <img class="logo" src="{% static 'img/Logo Lovely.png' %}" height='70' alt="logo">
+{% endblock logo %}
+
+{% block content %}
+<div class="block-body-admin">
+
+<!--Table Products-->
+    <div class="block-blocks">
+        <table bordercolor="DeepSkyBlue" bgcolor="LightCyan" border="1" class="w-740">
+            <tr style="background-color: white; color: SteelBlue; height: 40px">
+                <th width="20%">Edit</th>
+                <th width="30%">Name</th>
+                <th width="30%">Category</th>
+                <th width="20%">Expiration_date</th>
+            </tr>
+            {% for product in products %}
+            <tr style="font-family: 'Roboto', sans-serif; font-size: 12px; color: SteelBlue">
+                <th style="background-color: white">
+                    <a class="update-category" href="{% url 'update_product' product.id %}">update</a>
+                    <a class="delete-category" href="{% url 'delete_product' product.id %}">delete</a>
+                </th>
+                <th><a href="{% url 'product_details' product.id %}">{{ product.name }}</a></th>
+                <th>{{ product.category }}</th>
+                <th>{{ product.expiration_date }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+<!--Right Menu for superuser-->
+    {% if user.is_superuser %}
+            <div id="catalog-menu" class="list-group">
+            <a href="{% url 'categories_homepage' %}" class="list-group-item">
+                Categories
+            </a>
+            <a href="{% url 'create_product' %}" class="list-group-item">New product</a>
+            <a href="#" class="list-group-item">Not available</a>
+            <a href="#" class="list-group-item">Promotional products</a>
+            <a href="{% url 'products_list' %}" class="list-group-item">All products</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}
+
+{% block footer-img %}
+    <img class="footer-img" src="{% static 'img/1.jpg' %}" alt="img">
+{% endblock footer-img %}

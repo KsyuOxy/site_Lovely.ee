@@ -23,7 +23,11 @@
             <ul type="none" >
                 {% for category in categories %}
                     <li class="catalog-list">
+                        <a class="update-category" href="{% url 'update_category' category.id %}">update</a>
+                        <a class="delete-category" href="{% url 'delete_category' category.id %}">delete</a>
                         <a  href="{% url 'category_details' category.id %}"> {{category.id}}.{{category.name}} </a>
+
+
                     </li>
                 {% endfor %}
             </ul>
@@ -32,11 +36,11 @@
     <div class="list-group">
         <a class="list-group-item" href="{% url 'categories_homepage' %}"> Categories </a>
         <ul type="disk">
-            <li class="list-item"><a href="#"> update category </a></li>
+
             <li class="list-item"><a href="{% url 'create_category' %}"> create new category </a></li>
-            <li class="list-item"><a href="#"> delete category </a></li>
-            <li class="list-item"><a href="{% url 'category_list' %}"> list of categories </a></li>
-            <li class="list-item"><a href="#"> category details </a></li>
+
+            <li class="list-item"><a href="{% url 'category_list' %}"> list of categories (update, delete) </a></li>
+<!--            <li class="list-item"><a href="#"> category details </a></li>-->
         </ul>
     </div>
 </div>

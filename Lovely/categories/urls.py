@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import index, category_list, create_category, category_details, delete_category, update_category
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:category_id>/details', category_details, name='category_details'),
     path('<int:category_id>/delete', delete_category, name='delete_category'),
     path('<int:category_id>/update', update_category, name='update_category'),
+    path('', include('products.urls')),
 ]

@@ -1,0 +1,37 @@
+.block-detail{
+    position: relative;
+    top: 49px;
+    margin-left: 85px;
+    background: #FFE4E180;
+    width: 740px;
+    height: 350px;
+    border-radius: 10px;
+    padding: 15px 35px;
+    color: DimGray;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+.block-inline{
+    display: inline-block;
+    width: 1250px;
+    height: 500px;
+}
+.list-group{
+    position: relative;
+    top: -260px;
+}
+.list-group a{
+    margin-top: 15px;
+}
+.category-name-table{
+    margin-top: 0px;
+    padding-top: 0px;
+    text-align: center;
+}
+.w-740{
+    width:740px;
+}
+.m-left-15{
+    margin-left: 15px;
+}
